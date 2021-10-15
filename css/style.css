@@ -1,0 +1,117 @@
+*{
+    margin : 0%;
+    padding: 0%;
+    font-family: 'Roboto', sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+.header-ind__container{
+    background-color: rgb(122, 122, 122);
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: "logo redes carrito";
+}
+
+.imgLogoHeader{
+    width: 450px;
+    height: 220px;
+    grid-area: logo;
+}
+
+.listaCarritoDelHeader{
+    grid-area: carrito;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5%;
+    color: white;
+}
+
+.carritoJavaScript{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: black;
+}
+
+#offcanvasTopLabel{
+    color: black;
+    font-weight: bolder;
+}
+
+.listaRedesDelHeader{
+    grid-area: redes;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hrefRedes{
+    
+    list-style: none;
+}
+
+
+.listaPantalones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    justify-items: center ;
+}
+
+.listaRemeras{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.listaZapatillas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.tituloProductos{
+    font-weight: bolder;
+    text-align: center;
+}
+
+.itemPrendas{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    text-align: center;
+
+}
+
+.imagenDelJson{
+    width: 200px;
+    height: 300px;
+    align-self: center;
+}
+
+.botonCompraPrenda{
+    height: 40px;
+    width: 170px;
+}
+
+.selectTallePrenda{
+    height: 40px;
+    width: 40px;
+}
+
+h3{
+    font-weight: bolder;
+}

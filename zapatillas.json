@@ -1,0 +1,18 @@
+[
+    {
+        "id" : "zapatillas00D",
+        "nombre" : "Daddy Shoes",
+        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg",
+        "color" : "Blanco",
+        "descripcion": "Calzado tipo daddy de suela de goma y plantillas ergonómicas",
+        "precio" : "9995"
+    },
+    {
+        "id" : "zapatillas00B",
+        "nombre" : "Bryan Shoes",
+        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg",
+        "color" : "Negro",
+        "descripcion" : "Calzado de gamuza negro, tipo pancha.",
+        "precio" : "9995"
+    }
+]

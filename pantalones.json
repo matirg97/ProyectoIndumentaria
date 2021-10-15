@@ -1,0 +1,18 @@
+[
+    {
+        "id" : "jean00",
+        "nombre" : "Jean Indigo",
+        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg",
+        "color" : "Azul",
+        "descripcion": "Jean indigo lavado 98% ALGODON 2% ELASTANO.",
+        "precio" : "8995"
+    },
+    {
+        "id" : "chino00",
+        "nombre" : "Pantalon Chino",
+        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg",
+        "color" : "Beige",
+        "descripcion" : "Pantalón de gabardina 98% ALGODON 2% ELASTANO.",
+        "precio" : "8995"
+    }
+]
