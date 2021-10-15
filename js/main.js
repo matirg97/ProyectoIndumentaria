@@ -370,7 +370,7 @@ function muestraCarrito(){
         $("#divCarrito").append(estructuraCarrito);
     }
 
-    const URLREMERAS = "http://127.0.0.1:5500/MatiIndumentaria/remeras.json";
+    const URLREMERAS = "https://matirg97.github.io/ProyectoIndumentaria/remeras.json";
 
     $.getJSON(URLREMERAS, function(respuesta,estado){
         let misDatos = respuesta;
@@ -403,7 +403,7 @@ function muestraCarrito(){
         }
     );
 
-    const URLPANTALONES = "http://127.0.0.1:5500/MatiIndumentaria/pantalones.json";
+    const URLPANTALONES = "https://matirg97.github.io/ProyectoIndumentaria/pantalones.json";
 
     $.getJSON(URLPANTALONES, function(respuesta,estado){
         let misDatos = respuesta;
@@ -434,7 +434,7 @@ function muestraCarrito(){
         }
     });
 
-    const URLZAPATILLAS = "http://127.0.0.1:5500/MatiIndumentaria/zapatillas.json";
+    const URLZAPATILLAS = "https://matirg97.github.io/ProyectoIndumentaria/zapatillas.json";
 
     $.getJSON(URLZAPATILLAS, function(respuesta,estado){
         let misDatos = respuesta;
