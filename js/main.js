@@ -112,6 +112,13 @@ function jeanAlCarrito(){
 
     } else {
         console.log("no escogio talle");
+        $("#contenidoDivNoEscogioTalleJean").replaceWith(`
+        <div class="alert alert-info" role="alert">
+        Seleccione el talle.
+        </div>
+        `);
+        $("#divNoEscogioTalleJean").fadeIn("slow")
+        .fadeOut("slow");
     }
 
 }
@@ -145,6 +152,13 @@ function chinoAlCarrito (){
 
     } else {
         console.log("no escogio talle");
+        $("#contenidoDivNoEscogioTalleChino").replaceWith(`
+        <div class="alert alert-info" role="alert">
+        Seleccione el talle.
+        </div>
+        `);
+        $("#divNoEscogioTalleChino").fadeIn("slow")
+        .fadeOut("slow");
     }
 
 }
@@ -178,6 +192,13 @@ function remeraRayadaAlCarrito() {
 
     } else {
         console.log("no escogio talle");
+        $("#contenidoDivNoEscogioTalleRR").replaceWith(`
+        <div class="alert alert-info" role="alert">
+        Seleccione el talle.
+        </div>
+        `);
+        $("#divNoEscogioTalleRemeraRayada").fadeIn("slow")
+        .fadeOut("slow");
     }
 
 }
@@ -211,6 +232,13 @@ function remeraBasicaAlCarrito(){
 
     } else {
         console.log("no escogio talle");
+        $("#contenidoDivNoEscogioTalleRB").replaceWith(`
+        <div class="alert alert-info" role="alert">
+        Seleccione el talle.
+        </div>
+        `);
+        $("#divNoEscogioTalleRemeraBasica").fadeIn("slow")
+        .fadeOut("slow");
     }
 
 }
@@ -250,6 +278,13 @@ function zapatillasBryanAlCarrito(){
 
     } else {
         console.log("no escogio talle");
+        $("#contenidoDivNoEscogioTalleZB").replaceWith(`
+        <div class="alert alert-info" role="alert">
+        Seleccione el talle.
+        </div>
+        `);
+        $("#divNoEscogioTalleZapatillasBryan").fadeIn("slow")
+        .fadeOut("slow");
     }
 
 }
@@ -289,6 +324,13 @@ function zapatillasDaddyShoesAlCarrito() {
 
     } else {
         console.log("no escogio talle");
+        $("#contenidoDivNoEscogioTalleZD").replaceWith(`
+        <div class="alert alert-info" role="alert">
+        Seleccione el talle.
+        </div>
+        `);
+        $("#divNoEscogioTalleZapatillasDaddyShoes").fadeIn("slow")
+        .fadeOut("slow");
     }
 }
 

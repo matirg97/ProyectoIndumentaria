@@ -124,3 +124,7 @@ h3{
     color: black;
     font-weight: bolder;
 }
+
+.divNoEscogioTalle{
+    display: none;
+}
