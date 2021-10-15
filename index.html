@@ -73,7 +73,7 @@
                     </button>
                 </li>
                 <li>
-                    <button id="botonEliminarProductos" class="btn btn-danger">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-cart-x" viewBox="0 0 16 16">
                             <path
@@ -82,6 +82,28 @@
                                 d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                         </svg>
                     </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Vaciar carrito</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="parrafoDelModal">¿Desea eliminar todos los productos del carrito?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-danger" id="botonEliminarProductos" data-bs-dismiss="modal">Eliminar productos</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Final Modal-->
                 </li>
             </ul>
         </div>
@@ -99,28 +121,30 @@
                     <li id="jeanIndigo00" class="itemPrendas">
                         <div id="divJeanIndigo00"></div>
                         <div class="divButtonSelect">
-                        <button id="buttonJean" class="btn btn-primary botonCompraPrenda">Agregar al carrito</button>
-                        <select name="" id="talleJean" class="selectTallePrenda">
-                            <option value="0"></option>
-                            <option value="30">30</option>
-                            <option value="32">32</option>
-                            <option value="34">34</option>
-                            <option value="36">36</option>
-                        </select>
+                            <button id="buttonJean" class="btn btn-primary botonCompraPrenda">Agregar al
+                                carrito</button>
+                            <select name="" id="talleJean" class="selectTallePrenda">
+                                <option value="0"></option>
+                                <option value="30">30</option>
+                                <option value="32">32</option>
+                                <option value="34">34</option>
+                                <option value="36">36</option>
+                            </select>
                         </div>
                     </li>
 
                     <li id="chinoBeige00" class="itemPrendas">
                         <div id="divChinoBeige00"></div>
                         <div class="divButtonSelect">
-                        <button id="buttonChino" class="btn btn-primary botonCompraPrenda">Agregar al carrito</button>
-                        <select name="" id="talleChino" class="selectTallePrenda">
-                            <option value="0"></option>
-                            <option value="30">30</option>
-                            <option value="32">32</option>
-                            <option value="34">34</option>
-                            <option value="36">36</option>
-                        </select>
+                            <button id="buttonChino" class="btn btn-primary botonCompraPrenda">Agregar al
+                                carrito</button>
+                            <select name="" id="talleChino" class="selectTallePrenda">
+                                <option value="0"></option>
+                                <option value="30">30</option>
+                                <option value="32">32</option>
+                                <option value="34">34</option>
+                                <option value="36">36</option>
+                            </select>
                         </div>
                     </li>
                 </ul>
@@ -130,15 +154,15 @@
                     <li id="remeraRayada00" class="itemPrendas">
                         <div id="divRemeraRayada00"></div>
                         <div class="divButtonSelect">
-                        <button id="buttonRemeraRayada" class="btn btn-primary botonCompraPrenda">Agregar al
-                            carrito</button>
-                        <select name="" id="talleRemeraRayada" class="selectTallePrenda">
-                            <option value="0"></option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
+                            <button id="buttonRemeraRayada" class="btn btn-primary botonCompraPrenda">Agregar al
+                                carrito</button>
+                            <select name="" id="talleRemeraRayada" class="selectTallePrenda">
+                                <option value="0"></option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
                         </div>
                     </li>
                     <li id="remeraBasica00" class="itemPrendas">
@@ -163,31 +187,31 @@
                     <li id="zapatillas00B" class="itemPrendas">
                         <div id="divZapatillas00B"></div>
                         <div class="divButtonSelect">
-                        <button id="buttonZapatillasBryan" class="btn btn-primary botonCompraPrenda">Agregar al
-                            carrito</button>
-                        <select name="" id="talleZapatillasBryan" class="selectTallePrenda">
-                            <option value="0"></option>
-                            <option value="40">40</option>
-                            <option value="41">41</option>
-                            <option value="42">42</option>
-                            <option value="43">43</option>
-                            <option value="44">44</option>
-                        </select>
+                            <button id="buttonZapatillasBryan" class="btn btn-primary botonCompraPrenda">Agregar al
+                                carrito</button>
+                            <select name="" id="talleZapatillasBryan" class="selectTallePrenda">
+                                <option value="0"></option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                            </select>
                         </div>
                     </li>
                     <li id="zapatillas00D" class="itemPrendas">
                         <div id="divZapatillas00D"></div>
                         <div class="divButtonSelect">
-                        <button id="buttonZapatillasDaddyShoes" class="btn btn-primary botonCompraPrenda">Agregar al
-                            carrito</button>
-                        <select name="" id="talleZapatillasDaddyShoes" class="selectTallePrenda">
-                            <option value="0"></option>
-                            <option value="40">40</option>
-                            <option value="41">41</option>
-                            <option value="42">42</option>
-                            <option value="43">43</option>
-                            <option value="44">44</option>
-                        </select>
+                            <button id="buttonZapatillasDaddyShoes" class="btn btn-primary botonCompraPrenda">Agregar al
+                                carrito</button>
+                            <select name="" id="talleZapatillasDaddyShoes" class="selectTallePrenda">
+                                <option value="0"></option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                            </select>
                         </div>
                     </li>
                 </ul>

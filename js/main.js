@@ -301,7 +301,8 @@ function calcularIva(producto) {
 
 //Función para eliminar los productos del carrito.
 
-function eliminarProductos() {{
+function eliminarProductos() {
+    {
         localStorage.removeItem('carrito');
         console.log("Muchas gracias. Carrito vacío.")
     }
@@ -367,7 +368,7 @@ function muestraCarrito(){
     for (elemento of shoppingCart) {
         productosCarrito += `\n -${elemento.producto}`;
     }
-        $("#divCarrito").append(estructuraCarrito);
+        $("#divCarrito").html(estructuraCarrito);
     }
 
     const URLREMERAS = "https://matirg97.github.io/ProyectoIndumentaria/remeras.json";
@@ -466,7 +467,7 @@ function muestraCarrito(){
     });
 
 //Boton que pertenece al "eliminar elementos" del header.
-$("#botonEliminarProductos").dblclick(eliminarProductos);
+$("#botonEliminarProductos").click(eliminarProductos);
 
 //Boton que pertenece al carrito del header.
 $("#botonCarritoHeader").click(muestraCarrito);
