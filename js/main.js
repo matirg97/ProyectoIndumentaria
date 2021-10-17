@@ -89,25 +89,21 @@ function jeanAlCarrito(){
     if (valueJean0.value == "30" ) {
 
         shoppingCart.push(jean00);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueJean0.value == "32"){
 
         shoppingCart.push(jean01);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueJean0.value == "34" ){
 
         shoppingCart.push(jean02);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueJean0.value == "36"){
 
         shoppingCart.push(jean03);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else {
@@ -129,25 +125,21 @@ function chinoAlCarrito (){
     if (valueChino0.value == "30" ) {
 
         shoppingCart.push(chino00);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueChino0.value == "32"){
 
         shoppingCart.push(chino01);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueChino0.value == "34" ){
 
         shoppingCart.push(chino02);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueChino0.value == "36"){
 
         shoppingCart.push(chino03);
-        valorDelCarrito.push(valorPantalones);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else {
@@ -169,25 +161,21 @@ function remeraRayadaAlCarrito() {
     if (valueRemera0R.value == "S" ) {
 
         shoppingCart.push(remera00R);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueRemera0R.value == "M"){
 
         shoppingCart.push(remera01R);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueRemera0R.value == "L" ){
 
         shoppingCart.push(remera02R);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueRemera0R.value == "XL"){
 
         shoppingCart.push(remera03R);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else {
@@ -209,25 +197,21 @@ function remeraBasicaAlCarrito(){
     if (valueRemera0B.value == "S" ) {
 
         shoppingCart.push(remera00B);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueRemera0B.value == "M"){
 
         shoppingCart.push(remera01B);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueRemera0B.value == "L" ){
 
         shoppingCart.push(remera02B);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueRemera0B.value == "XL"){
 
         shoppingCart.push(remera03B);
-        valorDelCarrito.push(valorRemeras);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else {
@@ -249,31 +233,26 @@ function zapatillasBryanAlCarrito(){
     if (valueZapatillas0B.value == "40" ) {
 
         shoppingCart.push(zapatillas00B);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueZapatillas0B.value == "41"){
 
         shoppingCart.push(zapatillas01B);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueZapatillas0B.value == "42" ){
 
         shoppingCart.push(zapatillas02B);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueZapatillas0B.value == "43"){
 
         shoppingCart.push(zapatillas03B);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if ( valueZapatillas0B.value == "44"){
 
         shoppingCart.push(zapatillas04B);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else {
@@ -295,31 +274,26 @@ function zapatillasDaddyShoesAlCarrito() {
     if (valueZapatillas0D.value == "40" ) {
 
         shoppingCart.push(zapatillas00D);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueZapatillas0D.value == "41"){
 
         shoppingCart.push(zapatillas01D);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueZapatillas0D.value == "42" ){
 
         shoppingCart.push(zapatillas02D);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if (valueZapatillas0D.value == "43"){
 
         shoppingCart.push(zapatillas03D);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else if ( valueZapatillas0D.value == "44"){
 
         shoppingCart.push(zapatillas04D);
-        valorDelCarrito.push(valorZapatillas);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
 
     } else {
@@ -360,7 +334,7 @@ function finalCompra(){
         }
 
 
-        $(".header-ind").append(
+        $("#mensajeCompra").replaceWith(
             `
             <div id="mensajeCompra" class="alert alert-success">
                 Muchas gracias por la compra!
@@ -381,7 +355,7 @@ const shoppingCart = [];
 if (carritoLocal != null) {
     const carritoLocalObject = JSON.parse(carritoLocal);
     for (const prod of carritoLocalObject) {
-        shoppingCart.push(new Prenda(prod.id , prod.tamanio, prod.stock, prod.precio));
+        shoppingCart.push(new Prenda(prod.id , prod.producto, prod.tamanio, prod.stock, prod.precio));
     }
 }
 
@@ -389,29 +363,35 @@ if (carritoLocal != null) {
 
 let productosCarrito = "";
 let precioCarrito = 0;
-let valorDelCarrito = [];
-
-    function estructuraCarrito(){
-        $("#divCarrito").html(`  <ul class="carritoJavaScript">
-                                        <li>
-                                        Lleva los siguientes productos:
-                                        \n ${productosCarrito}
-                                        </li>
-                                        <li>
-                                        Por un total de $${precioCarrito}
-                                        </li>
-                                    </ul>`);
-    }
 
 function muestraCarrito(){
+    
     for (valor of shoppingCart){
         precioCarrito += valor.precio;
     }
+    
     for (elemento of shoppingCart) {
-        productosCarrito += `\n -${elemento.producto}`;
+        productosCarrito += elemento.producto;
     }
-        $("#divCarrito").html(estructuraCarrito);
+
+    $("#divCarrito").html(`
+            <ul class="carritoJavaScript">
+                <li>
+                Lleva los siguientes productos:
+                \n ${productosCarrito}
+                </li>
+                <li>
+                Por un total de $${precioCarrito}
+                </li>
+            </ul>`
+            );
     }
+
+
+        if (shoppingCart.length > 0){
+            $("#counterCarritoSpan").show();
+        }
+
 
     const URLREMERAS = "https://matirg97.github.io/ProyectoIndumentaria/remeras.json";
 
