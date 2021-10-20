@@ -332,7 +332,7 @@ function finalCompra(){
         for (prenda of shoppingCart) {
             prenda.restaDeStock();
         }
-
+        localStorage.removeItem('carrito');
 
         $("#mensajeCompra").replaceWith(
             `
@@ -344,8 +344,136 @@ function finalCompra(){
         $("#mensajeCompra").slideDown("slow")
         .delay("1000")
         .slideUp("slow");
-        localStorage.removeItem('carrito');
+
     }
+
+
+// Formularios de pago (Aplica al uso del boton verde en el header).
+
+//Objeto que va a acumular todos los datos del cliente.
+
+    class Clientes {
+        constructor(nombre, apellido, direccion, provincia, localidad, codigoPostal, mail) {
+
+            this.nombre = nombre,
+            this.apellido = apellido;
+            this.direccion = direccion;
+            this.provincia = provincia;
+            this.localidad = localidad;
+            this.codigoPostal = codigoPostal;
+            this.mail = mail;
+        }
+    };
+
+const planillaClientes = [];
+
+//ID que capturan los values/inputs del formulario
+
+    let inputNombre = document.querySelectorAll("#inputNombre")[0];
+    let inputApellido = document.querySelectorAll("#inputApellido")[0];
+    let inputDireccion = document.querySelectorAll("#inputDireccion")[0];
+    let inputCity = document.querySelectorAll("#inputCity")[0];
+    let inputLocalidad = document.querySelectorAll("#inputLocalidad")[0];
+    let inputZip = document.querySelectorAll("#inputZip")[0];
+    let inputMail = document.querySelectorAll("#inputMail")[0];
+    let inputTarjetaDeCredito = document.querySelectorAll("#inputTarjetaDeCredito")[0];
+    let inputVencimiento = document.querySelectorAll("#inputVencimiento")[0];
+
+//Funcion que habilita evalúa las resputas y muestra los checks o los errores con iconos elegidos
+    function operacionPayment (input, iconoSuccess, iconoError){
+
+        if (input.value != ""){
+            console.log(`El ingreso del ${input} fue exitoso`);
+            $(iconoSuccess).show();
+            $(iconoError).hide();
+        }else{
+            console.log(`El ingreso del ${input} fue erroneo`);
+            $(iconoError).show();
+            $(iconoSuccess).hide();
+        }
+    }
+
+    function operacionTarjetasNumeroPayment(input, iconoSuccess, iconoError){
+
+        if( input.value.length === 16 ){
+            console.log(`El ingreso del ${input} fue exitoso`);
+            $(iconoSuccess).show();
+            $(iconoError).hide();
+        }else{
+            console.log(`El ingreso del ${input} fue erroneo`);
+            $(iconoError).show();
+            $(iconoSuccess).hide();
+        }
+    }
+
+    function operacionTarjetasVencimientoPayment(input, iconoSuccess, iconoError){
+
+        if( input.value.length === 5 ){
+            console.log(`El ingreso del ${input} fue exitoso`);
+            $(iconoSuccess).show();
+            $(iconoError).hide();
+        }else{
+            console.log(`El ingreso del ${input} fue erroneo`);
+            $(iconoError).show();
+            $(iconoSuccess).hide();
+        }
+
+    }
+
+//Funcion que evalúa todos los inputs y que no falte ningun dato.
+    function paymentMethod (){
+
+        operacionPayment(inputNombre, "#iconCheckNombre", "#iconExclamationNombre");
+        operacionPayment(inputApellido, "#iconCheckApellido", "#iconExclamationApellido");
+        operacionPayment(inputDireccion, "#iconCheckDireccion", "#iconExclamationDireccion");
+        operacionPayment(inputCity, "#iconCheckProvincia", "#iconExclamationProvincia");
+        operacionPayment(inputLocalidad, "#iconCheckLocalidad", "#iconExclamationLocalidad");
+        operacionPayment(inputZip, "#iconCheckZip", "#iconExclamationZip");
+        operacionPayment(inputMail, "#iconCheckMail", "#iconExclamationMail");
+
+        operacionTarjetasNumeroPayment(inputTarjetaDeCredito, "#iconCheckTarjetaNumeros", "#iconExclamationTarjetaNumeros");
+        operacionTarjetasVencimientoPayment(inputVencimiento, "#iconCheckTarjetaVencimiento", "#iconExclamationTarjetaVencimiento");
+
+        if( ( inputNombre.value != "") && (inputApellido.value != "") && (inputDireccion.value != "") && (inputCity.value != "") && (inputLocalidad.value != "") && (inputZip.value != "") && (inputMail.value != "") && (inputTarjetaDeCredito.value.length === 16) && (inputVencimiento.value.length === 5) ){
+
+            planillaClientes.push(new Clientes(
+                inputNombre.value.toString().toLowerCase(),
+                inputApellido.value.toString().toLowerCase(),
+                inputDireccion.value.toString().toLowerCase(),
+                inputCity.value.toString().toLowerCase(),
+                inputLocalidad.value.toString().toLowerCase(),
+                inputZip.value.toString().toLowerCase(),
+                inputMail.value.toString().toLowerCase()
+                ));
+
+            for (prenda of shoppingCart) {
+                    prenda.restaDeStock();
+                }
+            localStorage.removeItem('carrito');
+
+            $("#divError").hide();
+
+        } else {
+        console.log("nose guardo");
+        $("#divError").replaceWith(`
+        <div class="alert alert-warning" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+        fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+        <path
+            d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+        <path
+            d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+        </svg>
+        Por favor, rellene los campos vacíos! :).
+    </div>
+        `);
+        }
+
+}
+
+//Boton de pago perteneciente al header.
+//$("#botonPagarPrendas").click(finalCompra);
+$("#buttonSolapaPayment").click(paymentMethod);
 
 //Elementos del carrito que se van a guardar
 
@@ -366,12 +494,9 @@ let precioCarrito = 0;
 
 function muestraCarrito(){
     
-    for (valor of shoppingCart){
-        precioCarrito += valor.precio;
-    }
-    
     for (elemento of shoppingCart) {
         productosCarrito += elemento.producto;
+        precioCarrito += elemento.precio;
     }
 
     $("#divCarrito").html(`
@@ -387,10 +512,12 @@ function muestraCarrito(){
             );
     }
 
+    $("#counterCarritoSpan").append(`
+    ${shoppingCart.length}
+    `);
 
-        if (shoppingCart.length > 0){
-            $("#counterCarritoSpan").show();
-        }
+
+
 
 
     const URLREMERAS = "https://matirg97.github.io/ProyectoIndumentaria/remeras.json";
@@ -495,7 +622,7 @@ $("#botonEliminarProductos").click(eliminarProductos);
 $("#botonCarritoHeader").click(muestraCarrito);
 
 //Boton de pago perteneciente al header.
-$("#botonPagarPrendas").click(finalCompra);
+//$("#botonPagarPrendas").click(finalCompra);
 
 //Boton de "Agregar al carrito" de los jeans.
 $("#buttonJean").click(jeanAlCarrito);
