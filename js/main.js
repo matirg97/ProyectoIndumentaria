@@ -451,7 +451,7 @@ const planillaClientes = [];
                 }
             localStorage.removeItem('carrito');
 
-            $("#divError").hide();
+            $("#staticBackdrop").modal('show');
 
         } else {
         console.log("nose guardo");
