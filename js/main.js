@@ -119,6 +119,9 @@ function jeanAlCarrito(){
 
 }
 
+//Boton de "Agregar al carrito" de los jeans.
+$("#buttonJean").click(jeanAlCarrito);
+
 //Función que agrega los chinos al carrito con sus respectivos talles/stock.
 function chinoAlCarrito (){
 
@@ -154,6 +157,9 @@ function chinoAlCarrito (){
     }
 
 }
+
+//Boton de "Agregar al carrito" de los chinos:
+$("#buttonChino").click(chinoAlCarrito);
 
 //Función que agrega las remeras rayadas al carrito con sus respectivos talles/stock.
 function remeraRayadaAlCarrito() {
@@ -191,6 +197,9 @@ function remeraRayadaAlCarrito() {
 
 }
 
+//Boton de "Agregar al carrito" de las remeras Rayadas:
+$("#buttonRemeraRayada").click(remeraRayadaAlCarrito);
+
 //Función que agrega las remeras basicas al carrito con sus respectivos talles/stock.
 function remeraBasicaAlCarrito(){
 
@@ -226,6 +235,9 @@ function remeraBasicaAlCarrito(){
     }
 
 }
+
+//Boton de "Agregar al carrito" de las remeras Basicas:
+$("#buttonRemeraBasica").click(remeraBasicaAlCarrito);
 
 //Función que agrega a las zapatillas bryan al carrito con sus respectivos talles/stock.
 function zapatillasBryanAlCarrito(){
@@ -268,6 +280,9 @@ function zapatillasBryanAlCarrito(){
 
 }
 
+//Boton de "Agregar al carrito" de las zapatillas Bryan:
+$("#buttonZapatillasBryan").click(zapatillasBryanAlCarrito);
+
 //Función que agrega a las zapatillas daddy shoes al carrito con sus respectivos talles/stock.
 function zapatillasDaddyShoesAlCarrito() {
 
@@ -308,6 +323,9 @@ function zapatillasDaddyShoesAlCarrito() {
     }
 }
 
+//Boton de "Agregar al carrito" de las zapatillas Daddy Shoes:
+$("#buttonZapatillasDaddyShoes").click(zapatillasDaddyShoesAlCarrito);
+
 //Función de calculo de IVA
 function calcularIva(producto) {
     let calculoIva = producto * iva + producto;
@@ -315,40 +333,21 @@ function calcularIva(producto) {
     return calculoIva;
 }
 
+//////////////////////////////////////////////////////////////// Proceso para eliminar los productos del carrito.
+
 //Función para eliminar los productos del carrito.
 
 function eliminarProductos() {
     {
         localStorage.removeItem('carrito');
-        console.log("Muchas gracias. Carrito vacío.")
     }
 
 }
-
-//Función que finaliza la compra("Evalúa" el cobro) y vacía el carrito.
-
-function finalCompra(){
-
-        for (prenda of shoppingCart) {
-            prenda.restaDeStock();
-        }
-        localStorage.removeItem('carrito');
-
-        $("#mensajeCompra").replaceWith(
-            `
-            <div id="mensajeCompra" class="alert alert-success">
-                Muchas gracias por la compra!
-            </div>
-            `
-        );
-        $("#mensajeCompra").slideDown("slow")
-        .delay("1000")
-        .slideUp("slow");
-
-    }
+//Boton que pertenece al "eliminar elementos" del header.
+$("#botonEliminarProductos").click(eliminarProductos);
 
 
-// Formularios de pago (Aplica al uso del boton verde en el header).
+///////////////////////////////////////////////////////////////Formularios de pago (Aplica al uso del boton verde en el header).
 
 //Objeto que va a acumular todos los datos del cliente.
 
@@ -383,11 +382,11 @@ const planillaClientes = [];
     function operacionPayment (input, iconoSuccess, iconoError){
 
         if (input.value != ""){
-            console.log(`El ingreso del ${input} fue exitoso`);
+            console.log(`El ingreso del ${input.toString()} fue exitoso`);
             $(iconoSuccess).show();
             $(iconoError).hide();
         }else{
-            console.log(`El ingreso del ${input} fue erroneo`);
+            console.log(`El ingreso del ${input.toString()} fue erroneo`);
             $(iconoError).show();
             $(iconoSuccess).hide();
         }
@@ -421,7 +420,18 @@ const planillaClientes = [];
     }
 
 //Funcion que evalúa todos los inputs y que no falte ningun dato.
+
     function paymentMethod (){
+
+        let inputNombre = document.querySelectorAll("#inputNombre")[0];
+        let inputApellido = document.querySelectorAll("#inputApellido")[0];
+        let inputDireccion = document.querySelectorAll("#inputDireccion")[0];
+        let inputCity = document.querySelectorAll("#inputCity")[0];
+        let inputLocalidad = document.querySelectorAll("#inputLocalidad")[0];
+        let inputZip = document.querySelectorAll("#inputZip")[0];
+        let inputMail = document.querySelectorAll("#inputMail")[0];
+        let inputTarjetaDeCredito = document.querySelectorAll("#inputTarjetaDeCredito")[0];
+        let inputVencimiento = document.querySelectorAll("#inputVencimiento")[0];
 
         operacionPayment(inputNombre, "#iconCheckNombre", "#iconExclamationNombre");
         operacionPayment(inputApellido, "#iconCheckApellido", "#iconExclamationApellido");
@@ -452,7 +462,7 @@ const planillaClientes = [];
             localStorage.removeItem('carrito');
 
             $("#staticBackdrop").modal('show');
-
+            
         } else {
         console.log("nose guardo");
         $("#divError").replaceWith(`
@@ -470,10 +480,217 @@ const planillaClientes = [];
         }
 
 }
+//Función que finaliza la compra("Evalúa" el cobro) y vacía el carrito.
+
+function finalCompra(){
+
+    $('main').replaceWith(`
+    <main>
+    <form id="paymentForm" class="row g-3">
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Compra realizada!</h5>
+                    </div>
+                    <div class="modal-body">
+                        Muchas gracias! Su compra se realizó con éxito ! :).
+                    </div>
+                    <div class="modal-footer">
+                        <a href="index.html">
+                            <button id="botonVolverAlHome" type="button" class="btn btn-primary">Volver al home</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Fin modal-->
+        <div id="divError"></div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Nombre</label>
+            <svg id="iconCheckNombre" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationNombre" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input id="inputNombre" type="text" class="form-control" placeholder="Nombre de pila"
+                aria-label="First name">
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Apellido</label>
+            <svg id="iconCheckApellido" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationApellido" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input id="inputApellido" type="text" class="form-control" placeholder="Apellido"
+                aria-label="Last name">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Direccion</label>
+            <svg id="iconCheckDireccion" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationDireccion" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input id="inputDireccion" type="text" class="form-control" placeholder="Av. Cabildo 2449">
+        </div>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">Provincia</label>
+            <svg id="iconCheckProvincia" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationProvincia" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input type="text" class="form-control" id="inputCity" placeholder="Catamarca">
+        </div>
+        <div class="col-md-4">
+            <label for="inputCity" class="form-label">Localidad</label>
+            <svg id="iconCheckLocalidad" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationLocalidad" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input id="inputLocalidad" type="text" class="form-control" placeholder="Belgrano">
+        </div>
+        <div class="col-md-2">
+            <label for="inputZip" class="form-label">Codigo Postal</label>
+            <svg id="iconCheckZip" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationZip" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input type="text" class="form-control" id="inputZip" placeholder="1428">
+        </div>
+        <div class="col-12">
+            <label for="inputEmail4" class="form-label">Mail</label>
+            <svg id="iconCheckMail" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationMail" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input type="text" class="form-control" id="inputMail" placeholder="pepito@javascript.com">
+        </div>
+        <div class="col-md-10">
+            <div class="form-label">
+                <label for="inputAddress" class="form-label">Numero de tarjeta (16 números)</label>
+                <svg id="iconCheckTarjetaNumeros" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                    <path
+                        d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+                </svg>
+                <svg id="iconExclamationTarjetaNumeros" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                    <path
+                        d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                    <path
+                        d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+                </svg>
+                <input id="inputTarjetaDeCredito" type="text" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX"
+                    maxlength="16">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="inputZip" class="form-label">Vencimiento</label>
+            <svg id="iconCheckTarjetaVencimiento" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <svg id="iconExclamationTarjetaVencimiento" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-patch-exclamation" viewBox="0 0 16 16">
+                <path
+                    d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z" />
+                <path
+                    d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+            </svg>
+            <input type="text" class="form-control" id="inputVencimiento" placeholder="XX/XX" maxlength="5">
+        </div>
+        <div class="col-12">
+            <button id="buttonSolapaPayment" type="button" class="btn btn-primary">Pagar</button>
+        </div>
+    </form>
+</main>
+    `);
+
+    $("#buttonSolapaPayment").click(paymentMethod);
+
+    }
 
 //Boton de pago perteneciente al header.
-//$("#botonPagarPrendas").click(finalCompra);
-$("#buttonSolapaPayment").click(paymentMethod);
+
+$("#botonPagarPrendas").click(finalCompra);
+
+////////////////////////////////////////////////////////////////////////////// Carrito (Aplica al botón azul).
 
 //Elementos del carrito que se van a guardar
 
@@ -489,36 +706,38 @@ if (carritoLocal != null) {
 
 //Funcion para mostrar el carrito.
 
-let productosCarrito = "";
-let precioCarrito = 0;
+    let productosCarrito = "";
+    let precioCarrito = 0;
 
-function muestraCarrito(){
-    
-    for (elemento of shoppingCart) {
-        productosCarrito += elemento.producto;
-        precioCarrito += elemento.precio;
-    }
+    function muestraCarrito(){
+        
+        for (elemento of shoppingCart) {
+            productosCarrito += elemento.producto;
+            precioCarrito += elemento.precio;
+        }
 
-    $("#divCarrito").html(`
-            <ul class="carritoJavaScript">
-                <li>
-                Lleva los siguientes productos:
-                \n ${productosCarrito}
-                </li>
-                <li>
-                Por un total de $${precioCarrito}
-                </li>
-            </ul>`
-            );
-    }
+        $("#divCarrito").html(`
+                <ul class="carritoJavaScript">
+                    <li>
+                    Lleva los siguientes productos:
+                    \n ${productosCarrito}
+                    </li>
+                    <li>
+                    Por un total de $${precioCarrito}
+                    </li>
+                </ul>`
+                );
+        }
 
-    $("#counterCarritoSpan").append(`
-    ${shoppingCart.length}
-    `);
+        $("#counterCarritoSpan").append(`
+        ${shoppingCart.length}
+        `);
+
+//Boton que pertenece al carrito del header.
+$("#botonCarritoHeader").click(muestraCarrito);
 
 
-
-
+//////////////////////////////////// Manipulando el HTML (principalmente descripciones) con los objetos instanciados en JSON.
 
     const URLREMERAS = "https://matirg97.github.io/ProyectoIndumentaria/remeras.json";
 
@@ -614,30 +833,3 @@ function muestraCarrito(){
             }
         }
     });
-
-//Boton que pertenece al "eliminar elementos" del header.
-$("#botonEliminarProductos").click(eliminarProductos);
-
-//Boton que pertenece al carrito del header.
-$("#botonCarritoHeader").click(muestraCarrito);
-
-//Boton de pago perteneciente al header.
-//$("#botonPagarPrendas").click(finalCompra);
-
-//Boton de "Agregar al carrito" de los jeans.
-$("#buttonJean").click(jeanAlCarrito);
-
-//Boton de "Agregar al carrito" de los chinos:
-$("#buttonChino").click(chinoAlCarrito);
-
-//Boton de "Agregar al carrito" de las remeras Rayadas:
-$("#buttonRemeraRayada").click(remeraRayadaAlCarrito);
-
-//Boton de "Agregar al carrito" de las remeras Basicas:
-$("#buttonRemeraBasica").click(remeraBasicaAlCarrito);
-
-//Boton de "Agregar al carrito" de las zapatillas Bryan:
-$("#buttonZapatillasBryan").click(zapatillasBryanAlCarrito);
-
-//Boton de "Agregar al carrito" de las zapatillas Daddy Shoes:
-$("#buttonZapatillasDaddyShoes").click(zapatillasDaddyShoesAlCarrito);
