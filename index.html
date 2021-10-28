@@ -45,7 +45,6 @@
                 <li id="carritoHeader">
                     <button id="botonCarritoHeader" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                        <span  id="counterCarritoSpan" class='cart-counter'></span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-basket2" viewBox="0 0 16 16">
                             <path
@@ -53,17 +52,26 @@
                             <path
                                 d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z" />
                         </svg>
-                        
+                    <span  id="counterCarritoSpan" class='cart-counter'>0
+                    </span>
                     </button>
                     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop"
                         aria-labelledby="offcanvasTopLabel">
                         <div class="offcanvas-header">
-                            <h5 id="offcanvasTopLabel">Tu carrito actual:</h5>
+                            <h5 id="offcanvasTopLabel">Tus productos:</h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" id="bodyCarrito">
-                            <div id="divCarrito"></div>
+                            <div id="divCarrito">           
+                                <ul id="listaShoppingCart"></ul>
+                            </div>
+                        </div>
+                        <div class="alert alert-light" role="alert">
+                        <p id="pDelValorTotalCarrito" class="col-md-8">
+                            Precio total: $0
+                        </p>
+                        <button id="botonCompraDelCarrito" type="button" class="btn btn-outline-success col-md-2" >Comprar</button>
                         </div>
                     </div>
                 </li>

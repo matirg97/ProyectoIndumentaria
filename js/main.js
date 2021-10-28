@@ -6,9 +6,9 @@ const valorRemeras = 3995;
 const valorZapatillas = 9995;
 
 
-//Objeto para las prendas
+////////////////////////////////////////////////////////////Objetos para las prendas
 class Prenda {
-    constructor(id, producto, tamanio, color, stock, precio) {
+    constructor(id, producto, tamanio, color, stock, precio, img) {
 
         this.id = id;
         this.producto = producto;
@@ -16,6 +16,7 @@ class Prenda {
         this.color = color;
         this.stock = stock;
         this.precio = precio;
+        this.img = img;
     }
 
     restaDeStock() {
@@ -25,50 +26,50 @@ class Prenda {
 
 //Pantalones
 
-const jean00 = new Prenda("jean00", "Jean Indigo", 30, "Azul", 15, 8995);
-const jean01 = new Prenda("jean01", "Jean Indigo", 32, "Azul", 15, 8995);
-const jean02 = new Prenda("jean02", "Jean Indigo", 34, "Azul", 15, 8995);
-const jean03 = new Prenda("jean03", "Jean Indigo", 36, "Azul", 15, 8995);
+const jean00 = new Prenda("jean00", "Jean Indigo", 30, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
+const jean01 = new Prenda("jean01", "Jean Indigo", 32, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
+const jean02 = new Prenda("jean02", "Jean Indigo", 34, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
+const jean03 = new Prenda("jean03", "Jean Indigo", 36, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
 
-const chino00 = new Prenda("chino00", "Chino", 30, "Beige", 15, 8995);
-const chino01 = new Prenda("chino01", "Chino", 32, "Beige", 15, 8995);
-const chino02 = new Prenda("chino02", "Chino", 34, "Beige", 15, 8995);
-const chino03 = new Prenda("chino03", "Chino", 36, "Beige", 15, 8995);
+const chino00 = new Prenda("chino00", "Pantalon Chino", 30, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
+const chino01 = new Prenda("chino01", "Pantalon Chino", 32, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
+const chino02 = new Prenda("chino02", "Pantalon Chino", 34, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
+const chino03 = new Prenda("chino03", "Pantalon Chino", 36, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
 
 let arrayPantalones = [jean00, jean01, jean02, jean03, chino00, chino01 ,chino02, chino03];
 
 //Remeras
 
-const remera01B = new Prenda("remera00B", "Remera Básica", "M", "Negro", 15, 3995);
-const remera00B = new Prenda("remera01B", "Remera Básica", "S", "Negro", 15, 3995);
-const remera02B = new Prenda("remera02B", "Remera Básica", "L", "Negro", 15, 3995);
-const remera03B = new Prenda("remera03B", "Remera Básica", "XL", "Negro", 15, 3995);
+const remera01B = new Prenda("remera00B", "Remera Básica", "S", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
+const remera00B = new Prenda("remera01B", "Remera Básica", "M", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
+const remera02B = new Prenda("remera02B", "Remera Básica", "L", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
+const remera03B = new Prenda("remera03B", "Remera Básica", "XL", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
 
-const remera00R = new Prenda("remera00R" ,"Remera Rayada", "S", "Blanca", 15, 3995);
-const remera01R = new Prenda("remera01R" ,"Remera Rayada", "M", "Blanca", 15, 3995);
-const remera02R = new Prenda("remera02R" ,"Remera Rayada", "L", "Blanca", 15, 3995);
-const remera03R = new Prenda("remera03R" ,"Remera Rayada", "XL", "Blanca", 15, 3995);
+const remera00R = new Prenda("remera00R" ,"Remera rayada", "S", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
+const remera01R = new Prenda("remera01R" ,"Remera rayada", "M", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
+const remera02R = new Prenda("remera02R" ,"Remera rayada", "L", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
+const remera03R = new Prenda("remera03R" ,"Remera rayada", "XL", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
 
 let arrayRemeras = [remera00B, remera01B, remera02B, remera03B, remera00R, remera01R, remera02R, remera03R];
 
 //Zapatillas
 
-const zapatillas00D = new Prenda("zapatillas00D" ,"Daddy shoes", 40, "Negro", 15, 9995);
-const zapatillas01D = new Prenda("zapatillas01D" ,"Daddy shoes", 41, "Negro", 15, 9995);
-const zapatillas02D = new Prenda("zapatillas02D" ,"Daddy shoes", 42, "Negro", 15, 9995);
-const zapatillas03D = new Prenda("zapatillas03D" ,"Daddy shoes", 43, "Negro", 15, 9995);
-const zapatillas04D = new Prenda("zapatillas04D" ,"Daddy shoes", 44, "Negro", 15, 9995);
+const zapatillas00D = new Prenda("zapatillas00D" ,"Daddy shoes", 40, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+const zapatillas01D = new Prenda("zapatillas01D" ,"Daddy shoes", 41, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+const zapatillas02D = new Prenda("zapatillas02D" ,"Daddy shoes", 42, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+const zapatillas03D = new Prenda("zapatillas03D" ,"Daddy shoes", 43, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+const zapatillas04D = new Prenda("zapatillas04D" ,"Daddy shoes", 44, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
 
-const zapatillas00B = new Prenda("zapatilllas00B","Calzado Bryan", 40, "Verde", 15, 9995);
-const zapatillas01B = new Prenda("zapatilllas01B","Calzado Bryan", 41, "Verde", 15, 9995);
-const zapatillas02B = new Prenda("zapatilllas02B","Calzado Bryan", 42, "Verde", 15, 9995);
-const zapatillas03B = new Prenda("zapatilllas03B","Calzado Bryan", 43, "Verde", 15, 9995);
-const zapatillas04B = new Prenda("zapatilllas04B","Calzado Bryan", 44, "Verde", 15, 9995);
+const zapatillas00B = new Prenda("zapatilllas00B","Calzado Bryan", 40, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+const zapatillas01B = new Prenda("zapatilllas01B","Calzado Bryan", 41, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+const zapatillas02B = new Prenda("zapatilllas02B","Calzado Bryan", 42, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+const zapatillas03B = new Prenda("zapatilllas03B","Calzado Bryan", 43, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+const zapatillas04B = new Prenda("zapatilllas04B","Calzado Bryan", 44, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
 
 let arrayZapatillas = [zapatillas00D, zapatillas01D, zapatillas02D, zapatillas03D, zapatillas04D, zapatillas00B, zapatillas01B, zapatillas02B,zapatillas03B, zapatillas04B];
 
-//Finaliza el objeto.
 
+/////////////////////////////////////////////////////////////Funciones que evalúan la interaccion del usuario con las prendas
 
 //Variables que toman los value de los select pertenecientes al HTML.
 valueJean0 = document.getElementById("talleJean");
@@ -90,21 +91,25 @@ function jeanAlCarrito(){
 
         shoppingCart.push(jean00);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueJean0.value == "32"){
 
         shoppingCart.push(jean01);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueJean0.value == "34" ){
 
         shoppingCart.push(jean02);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueJean0.value == "36"){
 
         shoppingCart.push(jean03);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else {
         console.log("no escogio talle");
@@ -129,21 +134,25 @@ function chinoAlCarrito (){
 
         shoppingCart.push(chino00);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueChino0.value == "32"){
 
         shoppingCart.push(chino01);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueChino0.value == "34" ){
 
         shoppingCart.push(chino02);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueChino0.value == "36"){
 
         shoppingCart.push(chino03);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else {
         console.log("no escogio talle");
@@ -168,21 +177,25 @@ function remeraRayadaAlCarrito() {
 
         shoppingCart.push(remera00R);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueRemera0R.value == "M"){
 
         shoppingCart.push(remera01R);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueRemera0R.value == "L" ){
 
         shoppingCart.push(remera02R);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueRemera0R.value == "XL"){
 
         shoppingCart.push(remera03R);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else {
         console.log("no escogio talle");
@@ -207,22 +220,26 @@ function remeraBasicaAlCarrito(){
 
         shoppingCart.push(remera00B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-
+        contadorCarrito();
+        
     } else if (valueRemera0B.value == "M"){
 
         shoppingCart.push(remera01B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-
+        contadorCarrito();
+        
     } else if (valueRemera0B.value == "L" ){
 
         shoppingCart.push(remera02B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-
+        contadorCarrito();
+        
     } else if (valueRemera0B.value == "XL"){
 
         shoppingCart.push(remera03B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-
+        contadorCarrito();
+        
     } else {
         console.log("no escogio talle");
         $("#contenidoDivNoEscogioTalleRB").replaceWith(`
@@ -246,26 +263,31 @@ function zapatillasBryanAlCarrito(){
 
         shoppingCart.push(zapatillas00B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueZapatillas0B.value == "41"){
 
         shoppingCart.push(zapatillas01B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueZapatillas0B.value == "42" ){
 
         shoppingCart.push(zapatillas02B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueZapatillas0B.value == "43"){
 
         shoppingCart.push(zapatillas03B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if ( valueZapatillas0B.value == "44"){
 
         shoppingCart.push(zapatillas04B);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else {
         console.log("no escogio talle");
@@ -290,26 +312,31 @@ function zapatillasDaddyShoesAlCarrito() {
 
         shoppingCart.push(zapatillas00D);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueZapatillas0D.value == "41"){
 
         shoppingCart.push(zapatillas01D);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueZapatillas0D.value == "42" ){
 
         shoppingCart.push(zapatillas02D);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if (valueZapatillas0D.value == "43"){
 
         shoppingCart.push(zapatillas03D);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else if ( valueZapatillas0D.value == "44"){
 
         shoppingCart.push(zapatillas04D);
         localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+        contadorCarrito();
 
     } else {
         console.log("no escogio talle");
@@ -338,9 +365,9 @@ function calcularIva(producto) {
 //Función para eliminar los productos del carrito.
 
 function eliminarProductos() {
-    {
+
         localStorage.removeItem('carrito');
-    }
+        contadorCarrito();
 
 }
 //Boton que pertenece al "eliminar elementos" del header.
@@ -700,42 +727,63 @@ const shoppingCart = [];
 if (carritoLocal != null) {
     const carritoLocalObject = JSON.parse(carritoLocal);
     for (const prod of carritoLocalObject) {
-        shoppingCart.push(new Prenda(prod.id , prod.producto, prod.tamanio, prod.stock, prod.precio));
+        shoppingCart.push(new Prenda(prod.id , prod.producto, prod.tamanio, prod.color, prod.stock, prod.precio, prod.img));
     }
 }
 
 //Funcion para mostrar el carrito.
 
     let productosCarrito = "";
-    let precioCarrito = 0;
+    let nombreProducto = "";
 
-    function muestraCarrito(){
-        
+    function indentificadorProductoPantalones(idProducto) {
+        if( idProducto.toLowerCase() == "jean indigo" ){
+            $("#listaShoppingCart").append(`
+            <li>
+                <p>
+                Jean
+                </p>
+
+            </li>
+            `)
+        }
+    }
+
         for (elemento of shoppingCart) {
-            productosCarrito += elemento.producto;
-            precioCarrito += elemento.precio;
+            nombreProducto = elemento.producto;
+            imgProducto = elemento.img;
+            precioCarrito =+ elemento.precio;  
+
+            $("#listaShoppingCart").append(`
+            <li class="listaDelCarrito">
+                <p class="pDelCarrito">
+                ${nombreProducto}
+                </p>
+                <img src="${elemento.img}" alt="" class="imgDelCarrito">
+                <p class="pDelCarrito">
+                Precio : $${elemento.precio}
+                </p>
+            </li>
+            `)
+            function valorTotalCarrito(){
+            $("#pDelValorTotalCarrito").replaceWith(`
+            Precio total : $${precioCarrito}
+            `)
+            };
+
+
         }
 
-        $("#divCarrito").html(`
-                <ul class="carritoJavaScript">
-                    <li>
-                    Lleva los siguientes productos:
-                    \n ${productosCarrito}
-                    </li>
-                    <li>
-                    Por un total de $${precioCarrito}
-                    </li>
-                </ul>`
-                );
-        }
-
-        $("#counterCarritoSpan").append(`
-        ${shoppingCart.length}
+    function contadorCarrito(){
+        $("#counterCarritoSpan").replaceWith(`
+        <span id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}</span>
         `);
-
-//Boton que pertenece al carrito del header.
-$("#botonCarritoHeader").click(muestraCarrito);
-
+    }
+$("#botonCarritoHeader").click(valorTotalCarrito);
+$("#counterCarritoSpan").replaceWith(`
+<span  id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}
+</span>
+`)
 
 //////////////////////////////////// Manipulando el HTML (principalmente descripciones) con los objetos instanciados en JSON.
 
