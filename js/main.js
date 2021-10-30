@@ -356,14 +356,6 @@
 //Boton de "Agregar al carrito" de las zapatillas Daddy Shoes:
     $("#buttonZapatillasDaddyShoes").click(zapatillasDaddyShoesAlCarrito);
 
-//Función de calculo de IVA.
-
-    function calcularIva(producto) {
-        let calculoIva = producto * iva + producto;
-
-        return calculoIva;
-    }
-
 //////////////////////////////////////////////////////////////// Proceso para eliminar los productos del carrito.
 
 //Función para eliminar los productos del carrito.
@@ -455,11 +447,10 @@
     };
 
     $("#counterCarritoSpan").replaceWith(`
-    <span  id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}
-    </span>
+    <span  id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}</span>
     `);
 
-///////////////////////////////////////////////////////////////Formularios de pago (Aplica al uso del boton verde en el header).
+/////////////////////////////////////////////////////////////// Formularios de pago (Aplica al uso del boton verde en el header).
 
 //Objeto que va a acumular todos los datos del cliente.
 
@@ -483,11 +474,9 @@
     function operacionPayment (input, iconoSuccess, iconoError){
 
         if (input.value != ""){
-            console.log(`El ingreso del ${input.toString()} fue exitoso`);
             $(iconoSuccess).show();
             $(iconoError).hide();
         }else{
-            console.log(`El ingreso del ${input.toString()} fue erroneo`);
             $(iconoError).show();
             $(iconoSuccess).hide();
         }
@@ -496,11 +485,9 @@
     function operacionTarjetasNumeroPayment(input, iconoSuccess, iconoError){
 
         if( input.value.length === 16 ){
-            console.log(`El ingreso del ${input} fue exitoso`);
             $(iconoSuccess).show();
             $(iconoError).hide();
         }else{
-            console.log(`El ingreso del ${input} fue erroneo`);
             $(iconoError).show();
             $(iconoSuccess).hide();
         }
@@ -509,11 +496,9 @@
     function operacionTarjetasVencimientoPayment(input, iconoSuccess, iconoError){
 
         if( input.value.length === 5 ){
-            console.log(`El ingreso del ${input} fue exitoso`);
             $(iconoSuccess).show();
             $(iconoError).hide();
         }else{
-            console.log(`El ingreso del ${input} fue erroneo`);
             $(iconoError).show();
             $(iconoSuccess).hide();
         }
@@ -524,7 +509,7 @@
 
     function paymentMethod (){
 
-        //ID que capturan los values/inputs del formulario
+    //ID que capturan los values/inputs del formulario
         
         let inputNombre = document.querySelectorAll("#inputNombre")[0];
         let inputApellido = document.querySelectorAll("#inputApellido")[0];
@@ -535,6 +520,8 @@
         let inputMail = document.querySelectorAll("#inputMail")[0];
         let inputTarjetaDeCredito = document.querySelectorAll("#inputTarjetaDeCredito")[0];
         let inputVencimiento = document.querySelectorAll("#inputVencimiento")[0];
+    
+    //Se utilizan las funciones creadas anteriormente para evaluar las respuestas del usuario y en base a los datos, generar las acciones o eventos.
 
         operacionPayment(inputNombre, "#iconCheckNombre", "#iconExclamationNombre");
         operacionPayment(inputApellido, "#iconCheckApellido", "#iconExclamationApellido");
@@ -546,6 +533,8 @@
 
         operacionTarjetasNumeroPayment(inputTarjetaDeCredito, "#iconCheckTarjetaNumeros", "#iconExclamationTarjetaNumeros");
         operacionTarjetasVencimientoPayment(inputVencimiento, "#iconCheckTarjetaVencimiento", "#iconExclamationTarjetaVencimiento");
+
+    //Evaluación de los inputs para agregar los datos del cliente a la planilla/array de la base de datos (Por el momento no se almacena). 
 
         if( ( inputNombre.value != "") && (inputApellido.value != "") && (inputDireccion.value != "") && (inputCity.value != "") && (inputLocalidad.value != "") && (inputZip.value != "") && (inputMail.value != "") && (inputTarjetaDeCredito.value.length === 16) && (inputVencimiento.value.length === 5) ){
 
@@ -586,6 +575,9 @@
 //Función que finaliza la compra("Evalúa" el cobro) y vacía el carrito.
 
     function finalCompra(){
+    
+    //Condicional que evalúa la acción del usuario en relación al carrito.
+
         if (shoppingCart != 0){
                 $('main').replaceWith(`
             <main>
@@ -811,6 +803,7 @@
         $("#modalDelCarrito").modal("show");
         }
 
+    //Botón que llama la función que almacena los datos del cliente.
         $("#buttonSolapaPayment").click(paymentMethod);
 
         }
