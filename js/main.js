@@ -114,7 +114,6 @@
             contadorCarrito();
 
         } else {
-            console.log("no escogio talle");
             $("#contenidoDivNoEscogioTalleJean").replaceWith(`
             <div class="alert alert-info" role="alert">
             Seleccione el talle.
@@ -158,7 +157,6 @@
             contadorCarrito();
 
         } else {
-            console.log("no escogio talle");
             $("#contenidoDivNoEscogioTalleChino").replaceWith(`
             <div class="alert alert-info" role="alert">
             Seleccione el talle.
@@ -201,7 +199,6 @@
             contadorCarrito();
 
         } else {
-            console.log("no escogio talle");
             $("#contenidoDivNoEscogioTalleRR").replaceWith(`
             <div class="alert alert-info" role="alert">
             Seleccione el talle.
@@ -244,7 +241,6 @@
             contadorCarrito();
             
         } else {
-            console.log("no escogio talle");
             $("#contenidoDivNoEscogioTalleRB").replaceWith(`
             <div class="alert alert-info" role="alert">
             Seleccione el talle.
@@ -293,7 +289,6 @@
             contadorCarrito();
 
         } else {
-            console.log("no escogio talle");
             $("#contenidoDivNoEscogioTalleZB").replaceWith(`
             <div class="alert alert-info" role="alert">
             Seleccione el talle.
@@ -342,7 +337,6 @@
             contadorCarrito();
 
         } else {
-            console.log("no escogio talle");
             $("#contenidoDivNoEscogioTalleZD").replaceWith(`
             <div class="alert alert-info" role="alert">
             Seleccione el talle.
@@ -428,7 +422,6 @@
         $("#divDelValorTotalCarrito").html("");
 
         var precioFinal = shoppingCart.reduce((sum, value) => (typeof value.precio == "number" ? sum + value.precio : sum), 0);
-        console.log(precioFinal);
 
         $("#divDelValorTotalCarrito").append(`
                         <p>Precio total : $${precioFinal}</p>
@@ -556,7 +549,6 @@
             $("#staticBackdrop").modal('show');
             
         } else {
-        console.log("nose guardo");
         $("#divError").replaceWith(`
         <div class="alert alert-warning" role="alert">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -835,7 +827,6 @@
         function valorTotalCarritoPayment(){
 
             var precioFinal = shoppingCart.reduce((sum, value) => (typeof value.precio == "number" ? sum + value.precio : sum), 0);
-            console.log(precioFinal);
     
             $("#divDelValorTotalCarritoPayment").append(`
                             <p>Precio total : $${precioFinal}</p>
