@@ -432,7 +432,7 @@
 //Funcion para calcular el valor total de todos los items.
 
     function valorTotalCarrito(){
-        
+
         $("#divDelValorTotalCarrito").html("");
 
         var precioFinal = shoppingCart.reduce((sum, value) => (typeof value.precio == "number" ? sum + value.precio : sum), 0);
@@ -589,6 +589,11 @@
         if (shoppingCart != 0){
                 $('main').replaceWith(`
             <main>
+            <div id="divCarrito">
+                <h3 id="tituloDelCarritoPayment">Sus productos elegidos:</h3>
+                <ul id="listaShoppingCartPayment"></ul>
+            </div>
+            <div id="divDelValorTotalCarritoPayment"></div>
             <form id="paymentForm" class="row g-3">
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -806,16 +811,56 @@
         $("#modalDelCarrito").modal("show");
         }
 
-
         $("#buttonSolapaPayment").click(paymentMethod);
 
         }
 
+        function carritoPayment(){
+    
+                    for (elemento of shoppingCart) {
+                    nombreProducto = elemento.producto;
+                    imgProducto = elemento.img;
+    
+                    $("#listaShoppingCartPayment").append(`
+                    <li class="listaDelCarrito">
+                        <p class="pDelCarrito">
+                        ${nombreProducto}
+                        </p>
+                        <img src="${elemento.img}" alt="" class="imgDelCarrito">
+                        <p class="pDelCarrito">
+                        Talle : ${elemento.tamanio}
+                        </p>
+                        <p class="pDelCarrito">
+                        Precio : $${elemento.precio}
+                        </p>
+                    </li>
+                    `);
+    
+                    };
+        }
+
+        function valorTotalCarritoPayment(){
+
+            var precioFinal = shoppingCart.reduce((sum, value) => (typeof value.precio == "number" ? sum + value.precio : sum), 0);
+            console.log(precioFinal);
+    
+            $("#divDelValorTotalCarritoPayment").append(`
+                            <p>Precio total : $${precioFinal}</p>
+            `);
+    
+        };
+    
+
 //Boton de pago perteneciente al header.
     $("#botonPagarPrendas").click(finalCompra);
+    $("#botonPagarPrendas").click(carritoPayment); 
+    $("#botonPagarPrendas").click(valorTotalCarritoPayment);
+
 
 //Boton de pago perteneciente al carrito.
     $("#botonCompraDelCarrito").click(finalCompra);
+    $("#botonCompraDelCarrito").click(carritoPayment);
+    $("#botonCompraDelCarrito").click(valorTotalCarritoPayment);
 
 //////////////////////////////////// Manipulando el HTML (principalmente descripciones) con los objetos instanciados en JSON.
 
