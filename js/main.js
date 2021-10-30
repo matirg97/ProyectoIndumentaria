@@ -1,379 +1,463 @@
 
 //Variables y constantes.
 
-const valorPantalones = 8995;
-const valorRemeras = 3995;
-const valorZapatillas = 9995;
+    const valorPantalones = 8995;
+    const valorRemeras = 3995;
+    const valorZapatillas = 9995;
 
 
 ////////////////////////////////////////////////////////////Objetos para las prendas
-class Prenda {
-    constructor(id, producto, tamanio, color, stock, precio, img) {
+    class Prenda {
+        constructor(id, producto, tamanio, color, stock, precio, img) {
 
-        this.id = id;
-        this.producto = producto;
-        this.tamanio = tamanio;
-        this.color = color;
-        this.stock = stock;
-        this.precio = precio;
-        this.img = img;
-    }
+            this.id = id;
+            this.producto = producto;
+            this.tamanio = tamanio;
+            this.color = color;
+            this.stock = stock;
+            this.precio = precio;
+            this.img = img;
+        }
 
-    restaDeStock() {
-        this.stock = this.stock - 1;
+        restaDeStock() {
+            this.stock = this.stock - 1;
+        }
     }
-}
 
 //Pantalones
 
-const jean00 = new Prenda("jean00", "Jean Indigo", 30, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
-const jean01 = new Prenda("jean01", "Jean Indigo", 32, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
-const jean02 = new Prenda("jean02", "Jean Indigo", 34, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
-const jean03 = new Prenda("jean03", "Jean Indigo", 36, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
+    const jean00 = new Prenda("jean00", "Jean Indigo", 30, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
+    const jean01 = new Prenda("jean01", "Jean Indigo", 32, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
+    const jean02 = new Prenda("jean02", "Jean Indigo", 34, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
+    const jean03 = new Prenda("jean03", "Jean Indigo", 36, "Azul", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg");
 
-const chino00 = new Prenda("chino00", "Pantalon Chino", 30, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
-const chino01 = new Prenda("chino01", "Pantalon Chino", 32, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
-const chino02 = new Prenda("chino02", "Pantalon Chino", 34, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
-const chino03 = new Prenda("chino03", "Pantalon Chino", 36, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
+    const chino00 = new Prenda("chino00", "Pantalon Chino", 30, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
+    const chino01 = new Prenda("chino01", "Pantalon Chino", 32, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
+    const chino02 = new Prenda("chino02", "Pantalon Chino", 34, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
+    const chino03 = new Prenda("chino03", "Pantalon Chino", 36, "Beige", 15, 8995, "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg");
 
-let arrayPantalones = [jean00, jean01, jean02, jean03, chino00, chino01 ,chino02, chino03];
+    let arrayPantalones = [jean00, jean01, jean02, jean03, chino00, chino01 ,chino02, chino03];
 
 //Remeras
 
-const remera01B = new Prenda("remera00B", "Remera Básica", "S", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
-const remera00B = new Prenda("remera01B", "Remera Básica", "M", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
-const remera02B = new Prenda("remera02B", "Remera Básica", "L", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
-const remera03B = new Prenda("remera03B", "Remera Básica", "XL", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
+    const remera01B = new Prenda("remera00B", "Remera Básica", "S", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
+    const remera00B = new Prenda("remera01B", "Remera Básica", "M", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
+    const remera02B = new Prenda("remera02B", "Remera Básica", "L", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
+    const remera03B = new Prenda("remera03B", "Remera Básica", "XL", "Negro", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg");
 
-const remera00R = new Prenda("remera00R" ,"Remera rayada", "S", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
-const remera01R = new Prenda("remera01R" ,"Remera rayada", "M", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
-const remera02R = new Prenda("remera02R" ,"Remera rayada", "L", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
-const remera03R = new Prenda("remera03R" ,"Remera rayada", "XL", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
+    const remera00R = new Prenda("remera00R" ,"Remera rayada", "S", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
+    const remera01R = new Prenda("remera01R" ,"Remera rayada", "M", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
+    const remera02R = new Prenda("remera02R" ,"Remera rayada", "L", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
+    const remera03R = new Prenda("remera03R" ,"Remera rayada", "XL", "Blanca", 15, 3995, "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg");
 
-let arrayRemeras = [remera00B, remera01B, remera02B, remera03B, remera00R, remera01R, remera02R, remera03R];
+    let arrayRemeras = [remera00B, remera01B, remera02B, remera03B, remera00R, remera01R, remera02R, remera03R];
 
 //Zapatillas
 
-const zapatillas00D = new Prenda("zapatillas00D" ,"Daddy shoes", 40, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
-const zapatillas01D = new Prenda("zapatillas01D" ,"Daddy shoes", 41, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
-const zapatillas02D = new Prenda("zapatillas02D" ,"Daddy shoes", 42, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
-const zapatillas03D = new Prenda("zapatillas03D" ,"Daddy shoes", 43, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
-const zapatillas04D = new Prenda("zapatillas04D" ,"Daddy shoes", 44, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+    const zapatillas00D = new Prenda("zapatillas00D" ,"Daddy shoes", 40, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+    const zapatillas01D = new Prenda("zapatillas01D" ,"Daddy shoes", 41, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+    const zapatillas02D = new Prenda("zapatillas02D" ,"Daddy shoes", 42, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+    const zapatillas03D = new Prenda("zapatillas03D" ,"Daddy shoes", 43, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
+    const zapatillas04D = new Prenda("zapatillas04D" ,"Daddy shoes", 44, "Negro", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/22591/index_0ENHF240021-5.jpg");
 
-const zapatillas00B = new Prenda("zapatilllas00B","Calzado Bryan", 40, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
-const zapatillas01B = new Prenda("zapatilllas01B","Calzado Bryan", 41, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
-const zapatillas02B = new Prenda("zapatilllas02B","Calzado Bryan", 42, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
-const zapatillas03B = new Prenda("zapatilllas03B","Calzado Bryan", 43, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
-const zapatillas04B = new Prenda("zapatilllas04B","Calzado Bryan", 44, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+    const zapatillas00B = new Prenda("zapatilllas00B","Calzado Bryan", 40, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+    const zapatillas01B = new Prenda("zapatilllas01B","Calzado Bryan", 41, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+    const zapatillas02B = new Prenda("zapatilllas02B","Calzado Bryan", 42, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+    const zapatillas03B = new Prenda("zapatilllas03B","Calzado Bryan", 43, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
+    const zapatillas04B = new Prenda("zapatilllas04B","Calzado Bryan", 44, "Verde", 15, 9995, "https://www.penguinargentina.com/uploads/picture/image/20955/0ENHF200010-2.jpg");
 
-let arrayZapatillas = [zapatillas00D, zapatillas01D, zapatillas02D, zapatillas03D, zapatillas04D, zapatillas00B, zapatillas01B, zapatillas02B,zapatillas03B, zapatillas04B];
+    let arrayZapatillas = [zapatillas00D, zapatillas01D, zapatillas02D, zapatillas03D, zapatillas04D, zapatillas00B, zapatillas01B, zapatillas02B,zapatillas03B, zapatillas04B];
 
 
 /////////////////////////////////////////////////////////////Funciones que evalúan la interaccion del usuario con las prendas
 
 //Variables que toman los value de los select pertenecientes al HTML.
-valueJean0 = document.getElementById("talleJean");
 
-valueChino0 = document.getElementById("talleChino");
+    valueJean0 = document.getElementById("talleJean");
 
-valueRemera0R = document.getElementById("talleRemeraRayada");
+    valueChino0 = document.getElementById("talleChino");
 
-valueRemera0B = document.getElementById("talleRemeraBasica");
+    valueRemera0R = document.getElementById("talleRemeraRayada");
 
-valueZapatillas0B = document.getElementById("talleZapatillasBryan");
+    valueRemera0B = document.getElementById("talleRemeraBasica");
 
-valueZapatillas0D = document.getElementById("talleZapatillasDaddyShoes");
+    valueZapatillas0B = document.getElementById("talleZapatillasBryan");
 
-//Función que agrega los jeans al carrito con sus respectivos talles/stock.
-function jeanAlCarrito(){
-    
-    if (valueJean0.value == "30" ) {
+    valueZapatillas0D = document.getElementById("talleZapatillasDaddyShoes");
 
-        shoppingCart.push(jean00);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+//Función que agrega los jeans al carrito con sus respectivos talles/stock.//
 
-    } else if (valueJean0.value == "32"){
+    function jeanAlCarrito(){
+        
+        if (valueJean0.value == "30" ) {
 
-        shoppingCart.push(jean01);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(jean00);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueJean0.value == "34" ){
+        } else if (valueJean0.value == "32"){
 
-        shoppingCart.push(jean02);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(jean01);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueJean0.value == "36"){
+        } else if (valueJean0.value == "34" ){
 
-        shoppingCart.push(jean03);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(jean02);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else {
-        console.log("no escogio talle");
-        $("#contenidoDivNoEscogioTalleJean").replaceWith(`
-        <div class="alert alert-info" role="alert">
-        Seleccione el talle.
-        </div>
-        `);
-        $("#divNoEscogioTalleJean").fadeIn("slow")
-        .fadeOut("slow");
+        } else if (valueJean0.value == "36"){
+
+            shoppingCart.push(jean03);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
+
+        } else {
+            console.log("no escogio talle");
+            $("#contenidoDivNoEscogioTalleJean").replaceWith(`
+            <div class="alert alert-info" role="alert">
+            Seleccione el talle.
+            </div>
+            `);
+            $("#divNoEscogioTalleJean").fadeIn("slow")
+            .fadeOut("slow");
+        }
+
     }
-
-}
 
 //Boton de "Agregar al carrito" de los jeans.
-$("#buttonJean").click(jeanAlCarrito);
 
-//Función que agrega los chinos al carrito con sus respectivos talles/stock.
-function chinoAlCarrito (){
+    $("#buttonJean").click(jeanAlCarrito);
 
-    if (valueChino0.value == "30" ) {
+//Función que agrega los chinos al carrito con sus respectivos talles/stock.//
+    function chinoAlCarrito (){
 
-        shoppingCart.push(chino00);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+        if (valueChino0.value == "30" ) {
 
-    } else if (valueChino0.value == "32"){
+            shoppingCart.push(chino00);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-        shoppingCart.push(chino01);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+        } else if (valueChino0.value == "32"){
 
-    } else if (valueChino0.value == "34" ){
+            shoppingCart.push(chino01);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-        shoppingCart.push(chino02);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+        } else if (valueChino0.value == "34" ){
 
-    } else if (valueChino0.value == "36"){
+            shoppingCart.push(chino02);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-        shoppingCart.push(chino03);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+        } else if (valueChino0.value == "36"){
 
-    } else {
-        console.log("no escogio talle");
-        $("#contenidoDivNoEscogioTalleChino").replaceWith(`
-        <div class="alert alert-info" role="alert">
-        Seleccione el talle.
-        </div>
-        `);
-        $("#divNoEscogioTalleChino").fadeIn("slow")
-        .fadeOut("slow");
+            shoppingCart.push(chino03);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
+
+        } else {
+            console.log("no escogio talle");
+            $("#contenidoDivNoEscogioTalleChino").replaceWith(`
+            <div class="alert alert-info" role="alert">
+            Seleccione el talle.
+            </div>
+            `);
+            $("#divNoEscogioTalleChino").fadeIn("slow")
+            .fadeOut("slow");
+        }
+
     }
-
-}
 
 //Boton de "Agregar al carrito" de los chinos:
-$("#buttonChino").click(chinoAlCarrito);
+    $("#buttonChino").click(chinoAlCarrito);
 
-//Función que agrega las remeras rayadas al carrito con sus respectivos talles/stock.
-function remeraRayadaAlCarrito() {
+//Función que agrega las remeras rayadas al carrito con sus respectivos talles/stock.//
+    function remeraRayadaAlCarrito() {
 
-    if (valueRemera0R.value == "S" ) {
+        if (valueRemera0R.value == "S" ) {
 
-        shoppingCart.push(remera00R);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(remera00R);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueRemera0R.value == "M"){
+        } else if (valueRemera0R.value == "M"){
 
-        shoppingCart.push(remera01R);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(remera01R);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueRemera0R.value == "L" ){
+        } else if (valueRemera0R.value == "L" ){
 
-        shoppingCart.push(remera02R);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(remera02R);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueRemera0R.value == "XL"){
+        } else if (valueRemera0R.value == "XL"){
 
-        shoppingCart.push(remera03R);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(remera03R);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else {
-        console.log("no escogio talle");
-        $("#contenidoDivNoEscogioTalleRR").replaceWith(`
-        <div class="alert alert-info" role="alert">
-        Seleccione el talle.
-        </div>
-        `);
-        $("#divNoEscogioTalleRemeraRayada").fadeIn("slow")
-        .fadeOut("slow");
+        } else {
+            console.log("no escogio talle");
+            $("#contenidoDivNoEscogioTalleRR").replaceWith(`
+            <div class="alert alert-info" role="alert">
+            Seleccione el talle.
+            </div>
+            `);
+            $("#divNoEscogioTalleRemeraRayada").fadeIn("slow")
+            .fadeOut("slow");
+        }
+
     }
-
-}
 
 //Boton de "Agregar al carrito" de las remeras Rayadas:
-$("#buttonRemeraRayada").click(remeraRayadaAlCarrito);
+    $("#buttonRemeraRayada").click(remeraRayadaAlCarrito);
 
-//Función que agrega las remeras basicas al carrito con sus respectivos talles/stock.
-function remeraBasicaAlCarrito(){
+//Función que agrega las remeras basicas al carrito con sus respectivos talles/stock.//
+    function remeraBasicaAlCarrito(){
 
-    if (valueRemera0B.value == "S" ) {
+        if (valueRemera0B.value == "S" ) {
 
-        shoppingCart.push(remera00B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
-        
-    } else if (valueRemera0B.value == "M"){
+            shoppingCart.push(remera00B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
+            
+        } else if (valueRemera0B.value == "M"){
 
-        shoppingCart.push(remera01B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
-        
-    } else if (valueRemera0B.value == "L" ){
+            shoppingCart.push(remera01B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
+            
+        } else if (valueRemera0B.value == "L" ){
 
-        shoppingCart.push(remera02B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
-        
-    } else if (valueRemera0B.value == "XL"){
+            shoppingCart.push(remera02B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
+            
+        } else if (valueRemera0B.value == "XL"){
 
-        shoppingCart.push(remera03B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
-        
-    } else {
-        console.log("no escogio talle");
-        $("#contenidoDivNoEscogioTalleRB").replaceWith(`
-        <div class="alert alert-info" role="alert">
-        Seleccione el talle.
-        </div>
-        `);
-        $("#divNoEscogioTalleRemeraBasica").fadeIn("slow")
-        .fadeOut("slow");
+            shoppingCart.push(remera03B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
+            
+        } else {
+            console.log("no escogio talle");
+            $("#contenidoDivNoEscogioTalleRB").replaceWith(`
+            <div class="alert alert-info" role="alert">
+            Seleccione el talle.
+            </div>
+            `);
+            $("#divNoEscogioTalleRemeraBasica").fadeIn("slow")
+            .fadeOut("slow");
+        }
+
     }
-
-}
 
 //Boton de "Agregar al carrito" de las remeras Basicas:
-$("#buttonRemeraBasica").click(remeraBasicaAlCarrito);
+    $("#buttonRemeraBasica").click(remeraBasicaAlCarrito);
 
-//Función que agrega a las zapatillas bryan al carrito con sus respectivos talles/stock.
-function zapatillasBryanAlCarrito(){
+//Función que agrega a las zapatillas bryan al carrito con sus respectivos talles/stock.//
+    function zapatillasBryanAlCarrito(){
 
-    if (valueZapatillas0B.value == "40" ) {
+        if (valueZapatillas0B.value == "40" ) {
 
-        shoppingCart.push(zapatillas00B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas00B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueZapatillas0B.value == "41"){
+        } else if (valueZapatillas0B.value == "41"){
 
-        shoppingCart.push(zapatillas01B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas01B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueZapatillas0B.value == "42" ){
+        } else if (valueZapatillas0B.value == "42" ){
 
-        shoppingCart.push(zapatillas02B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas02B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueZapatillas0B.value == "43"){
+        } else if (valueZapatillas0B.value == "43"){
 
-        shoppingCart.push(zapatillas03B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas03B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if ( valueZapatillas0B.value == "44"){
+        } else if ( valueZapatillas0B.value == "44"){
 
-        shoppingCart.push(zapatillas04B);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas04B);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else {
-        console.log("no escogio talle");
-        $("#contenidoDivNoEscogioTalleZB").replaceWith(`
-        <div class="alert alert-info" role="alert">
-        Seleccione el talle.
-        </div>
-        `);
-        $("#divNoEscogioTalleZapatillasBryan").fadeIn("slow")
-        .fadeOut("slow");
+        } else {
+            console.log("no escogio talle");
+            $("#contenidoDivNoEscogioTalleZB").replaceWith(`
+            <div class="alert alert-info" role="alert">
+            Seleccione el talle.
+            </div>
+            `);
+            $("#divNoEscogioTalleZapatillasBryan").fadeIn("slow")
+            .fadeOut("slow");
+        }
+
     }
-
-}
 
 //Boton de "Agregar al carrito" de las zapatillas Bryan:
-$("#buttonZapatillasBryan").click(zapatillasBryanAlCarrito);
+    $("#buttonZapatillasBryan").click(zapatillasBryanAlCarrito);
 
-//Función que agrega a las zapatillas daddy shoes al carrito con sus respectivos talles/stock.
-function zapatillasDaddyShoesAlCarrito() {
+//Función que agrega a las zapatillas daddy shoes al carrito con sus respectivos talles/stock.//
+    function zapatillasDaddyShoesAlCarrito() {
 
-    if (valueZapatillas0D.value == "40" ) {
+        if (valueZapatillas0D.value == "40" ) {
 
-        shoppingCart.push(zapatillas00D);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas00D);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueZapatillas0D.value == "41"){
+        } else if (valueZapatillas0D.value == "41"){
 
-        shoppingCart.push(zapatillas01D);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas01D);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueZapatillas0D.value == "42" ){
+        } else if (valueZapatillas0D.value == "42" ){
 
-        shoppingCart.push(zapatillas02D);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas02D);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if (valueZapatillas0D.value == "43"){
+        } else if (valueZapatillas0D.value == "43"){
 
-        shoppingCart.push(zapatillas03D);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas03D);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else if ( valueZapatillas0D.value == "44"){
+        } else if ( valueZapatillas0D.value == "44"){
 
-        shoppingCart.push(zapatillas04D);
-        localStorage.setItem("carrito", JSON.stringify(shoppingCart));
-        contadorCarrito();
+            shoppingCart.push(zapatillas04D);
+            localStorage.setItem("carrito", JSON.stringify(shoppingCart));
+            contadorCarrito();
 
-    } else {
-        console.log("no escogio talle");
-        $("#contenidoDivNoEscogioTalleZD").replaceWith(`
-        <div class="alert alert-info" role="alert">
-        Seleccione el talle.
-        </div>
-        `);
-        $("#divNoEscogioTalleZapatillasDaddyShoes").fadeIn("slow")
-        .fadeOut("slow");
+        } else {
+            console.log("no escogio talle");
+            $("#contenidoDivNoEscogioTalleZD").replaceWith(`
+            <div class="alert alert-info" role="alert">
+            Seleccione el talle.
+            </div>
+            `);
+            $("#divNoEscogioTalleZapatillasDaddyShoes").fadeIn("slow")
+            .fadeOut("slow");
+        }
     }
-}
 
 //Boton de "Agregar al carrito" de las zapatillas Daddy Shoes:
-$("#buttonZapatillasDaddyShoes").click(zapatillasDaddyShoesAlCarrito);
+    $("#buttonZapatillasDaddyShoes").click(zapatillasDaddyShoesAlCarrito);
 
-//Función de calculo de IVA
-function calcularIva(producto) {
-    let calculoIva = producto * iva + producto;
+//Función de calculo de IVA.
 
-    return calculoIva;
-}
+    function calcularIva(producto) {
+        let calculoIva = producto * iva + producto;
+
+        return calculoIva;
+    }
 
 //////////////////////////////////////////////////////////////// Proceso para eliminar los productos del carrito.
 
 //Función para eliminar los productos del carrito.
 
-function eliminarProductos() {
+    function eliminarProductos() {
 
-        localStorage.removeItem('carrito');
+            localStorage.removeItem('carrito');
+            $("#counterCarritoSpan").replaceWith(`
+            <span id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}</span>
+            `);
+    }
+
+    //Boton que pertenece al "eliminar elementos" del header.
+    
+    $("#botonEliminarProductos").click(eliminarProductos);
+
+
+
+////////////////////////////////////////////////////////////////////////////// Carrito (Aplica al botón azul).
+
+//Elementos del carrito que se van a guardar
+
+    const carritoLocal = localStorage.getItem("carrito");
+    const shoppingCart = [];
+
+    if (carritoLocal != null) {
+        const carritoLocalObject = JSON.parse(carritoLocal);
+        for (const prod of carritoLocalObject) {
+            shoppingCart.push(new Prenda(prod.id , prod.producto, prod.tamanio, prod.color, prod.stock, prod.precio, prod.img));
+        }
+    }
+
+//Funcion para mostrar los elementos del carrito.
+
+    let productosCarrito = "";
+    let nombreProducto = "";
+
+
+    function carritoHTML(){
+
+        $("#listaShoppingCart").html("");
+
+                for (elemento of shoppingCart) {
+                nombreProducto = elemento.producto;
+                imgProducto = elemento.img;
+
+                $("#listaShoppingCart").append(`
+                <li class="listaDelCarrito">
+                    <p class="pDelCarrito">
+                    ${nombreProducto}
+                    </p>
+                    <img src="${elemento.img}" alt="" class="imgDelCarrito">
+                    <p class="pDelCarrito">
+                    Talle : ${elemento.tamanio}
+                    </p>
+                    <p class="pDelCarrito">
+                    Precio : $${elemento.precio}
+                    </p>
+                </li>
+                `);
+
+    };}
+
+    $("#botonCarritoHeader").click(carritoHTML);
+
+//Funcion para calcular el valor total de todos los items.
+
+    function valorTotalCarrito(){
+        
+        $("#divDelValorTotalCarrito").html("");
+
+        var precioFinal = shoppingCart.reduce((sum, value) => (typeof value.precio == "number" ? sum + value.precio : sum), 0);
+        console.log(precioFinal);
+
+        $("#divDelValorTotalCarrito").append(`
+                        <p>Precio total : $${precioFinal}</p>
+        `);
+
+    };
+
+    $("#botonCarritoHeader").click(valorTotalCarrito);
+
+//Funcion y manipulacion del DOM para el contador del carrito.
+
+    function contadorCarrito(){
         $("#counterCarritoSpan").replaceWith(`
         <span id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}</span>
         `);
-}
-//Boton que pertenece al "eliminar elementos" del header.
-$("#botonEliminarProductos").click(eliminarProductos);
+    };
 
+    $("#counterCarritoSpan").replaceWith(`
+    <span  id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}
+    </span>
+    `);
 
 ///////////////////////////////////////////////////////////////Formularios de pago (Aplica al uso del boton verde en el header).
 
@@ -392,21 +476,10 @@ $("#botonEliminarProductos").click(eliminarProductos);
         }
     };
 
-const planillaClientes = [];
-
-//ID que capturan los values/inputs del formulario
-
-    let inputNombre = document.querySelectorAll("#inputNombre")[0];
-    let inputApellido = document.querySelectorAll("#inputApellido")[0];
-    let inputDireccion = document.querySelectorAll("#inputDireccion")[0];
-    let inputCity = document.querySelectorAll("#inputCity")[0];
-    let inputLocalidad = document.querySelectorAll("#inputLocalidad")[0];
-    let inputZip = document.querySelectorAll("#inputZip")[0];
-    let inputMail = document.querySelectorAll("#inputMail")[0];
-    let inputTarjetaDeCredito = document.querySelectorAll("#inputTarjetaDeCredito")[0];
-    let inputVencimiento = document.querySelectorAll("#inputVencimiento")[0];
+    const planillaClientes = [];
 
 //Funcion que habilita evalúa las resputas y muestra los checks o los errores con iconos elegidos
+
     function operacionPayment (input, iconoSuccess, iconoError){
 
         if (input.value != ""){
@@ -451,6 +524,8 @@ const planillaClientes = [];
 
     function paymentMethod (){
 
+        //ID que capturan los values/inputs del formulario
+        
         let inputNombre = document.querySelectorAll("#inputNombre")[0];
         let inputApellido = document.querySelectorAll("#inputApellido")[0];
         let inputDireccion = document.querySelectorAll("#inputDireccion")[0];
@@ -507,11 +582,11 @@ const planillaClientes = [];
         `);
         }
 
-}
+    }
 //Función que finaliza la compra("Evalúa" el cobro) y vacía el carrito.
 
     function finalCompra(){
-        if (carritoLocal != null){
+        if (shoppingCart != 0){
                 $('main').replaceWith(`
             <main>
             <form id="paymentForm" class="row g-3">
@@ -741,91 +816,6 @@ const planillaClientes = [];
 
 //Boton de pago perteneciente al carrito.
     $("#botonCompraDelCarrito").click(finalCompra);
-
-////////////////////////////////////////////////////////////////////////////// Carrito (Aplica al botón azul).
-
-//Elementos del carrito que se van a guardar
-
-    const carritoLocal = localStorage.getItem("carrito");
-    const shoppingCart = [];
-
-    if (carritoLocal != null) {
-        const carritoLocalObject = JSON.parse(carritoLocal);
-        for (const prod of carritoLocalObject) {
-            shoppingCart.push(new Prenda(prod.id , prod.producto, prod.tamanio, prod.color, prod.stock, prod.precio, prod.img));
-        }
-    }
-
-//Funcion para mostrar el carrito.
-
-    let productosCarrito = "";
-    let nombreProducto = "";
-    let precioCarrito = 0;
-
-    function carritoHTML(){
-                for (elemento of shoppingCart) {
-                nombreProducto = elemento.producto;
-                imgProducto = elemento.img;
-                precioCarrito += elemento.precio;  
-
-                $("#listaShoppingCart").append(`
-                <li class="listaDelCarrito">
-                    <p class="pDelCarrito">
-                    ${nombreProducto}
-                    </p>
-                    <img src="${elemento.img}" alt="" class="imgDelCarrito">
-                    <p class="pDelCarrito">
-                    Talle : ${elemento.tamanio}
-                    </p>
-                    <p class="pDelCarrito">
-                    Precio : $${elemento.precio}
-                    </p>
-                </li>
-                `);
-
-    };}
-
-    $("#botonCarritoHeader").click(carritoHTML);
-
-/*
-    shoppingCart.forEach(function(){
-
-        $("#listaShoppingCart").append(`
-                <li class="listaDelCarrito">
-                    <p class="pDelCarrito">
-                    ${shoppingCart.producto}
-                    </p>
-                    <img src="${shoppingCart.img}" alt="" class="imgDelCarrito">
-                    <p class="pDelCarrito">
-                    Talle : ${shoppingCart.tamanio}
-                    </p>
-                    <p class="pDelCarrito">
-                    Precio : $${shoppingCart.precio}
-                    </p>
-                </li>
-                `);
-
-    });
-*/
-
-    function valorTotalCarrito(){
-    $("#pDelValorTotalCarrito").replaceWith(`
-        Precio total : $${precioCarrito}
-    `)
-        };
-
-    $("#botonCarritoHeader").click(valorTotalCarrito);
-
-    function contadorCarrito(){
-        $("#counterCarritoSpan").replaceWith(`
-        <span id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}</span>
-        `);
-    }
-
-    $("#counterCarritoSpan").replaceWith(`
-    <span  id="counterCarritoSpan" class='cart-counter'>${shoppingCart.length}
-    </span>
-    `)
 
 //////////////////////////////////// Manipulando el HTML (principalmente descripciones) con los objetos instanciados en JSON.
 
